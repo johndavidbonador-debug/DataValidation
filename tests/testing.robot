@@ -37,4 +37,4 @@ Check Table Exist
     table must exist    person
 
 Verify Row Count is equal to exact values
-    Row Count Is Equal To X  select id from automationtesting.person where first_name="Johnx";        == 0
+    Row Count Is Equal To X  select id from automationtesting.person where first_name="Johnx";        == 0 #failed
