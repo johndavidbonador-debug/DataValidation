@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.5 on win32)" generated="2026-06-17T19:05:14.532449" rpa="false" schemaversion="5">
+<suite id="s1" name="Testing" source="C:\Users\pc\PycharmProjects\PythonProject2\tests\testing.robot">
+<kw name="Connect To Database" owner="DatabaseLibrary" type="SETUP">
+<msg time="2026-06-17T19:05:14.595137" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2026-06-17T19:05:14.595219" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-06-17T19:05:14.606633" level="INFO">Connect to DB using : pymysql.connect(db='automationtesting', user='root', passwd=***, host='127.0.0.1', port=3306, charset='utf8mb4')</msg>
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2026-06-17T19:05:14.594851" elapsed="0.044616"/>
+</kw>
+<test id="s1-t1" name="Check John record present in Person table" line="30">
+<kw name="Check If Exists In Database" owner="DatabaseLibrary">
+<msg time="2026-06-17T19:05:14.640030" level="WARN">Keyword 'DatabaseLibrary.Check If Exists In Database' is deprecated. Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</msg>
+<msg time="2026-06-17T19:05:14.640457" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;select id from automationtesting.person where first_name="John"&lt;/code&gt;</msg>
+<msg time="2026-06-17T19:05:14.640859" level="INFO">Commit the transaction</msg>
+<msg time="2026-06-17T19:05:14.641020" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;id&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;101&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<arg>select id from automationtesting.person where first_name="John"</arg>
+<doc>*DEPRECATED* Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</doc>
+<status status="PASS" start="2026-06-17T19:05:14.640000" elapsed="0.001075"/>
+</kw>
+<status status="PASS" start="2026-06-17T19:05:14.639614" elapsed="0.001674"/>
+</test>
+<test id="s1-t2" name="Verify Row Count is Zero" line="33">
+<kw name="Row Count Is 0" owner="DatabaseLibrary">
+<msg time="2026-06-17T19:05:14.641971" level="WARN">Keyword 'DatabaseLibrary.Row Count Is 0' is deprecated. Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</msg>
+<msg time="2026-06-17T19:05:14.642329" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;select id from automationtesting.person where first_name="Johnx"&lt;/code&gt;</msg>
+<msg time="2026-06-17T19:05:14.642561" level="INFO">Commit the transaction</msg>
+<msg time="2026-06-17T19:05:14.642700" level="INFO">Retrieved 0 rows</msg>
+<msg time="2026-06-17T19:05:14.642729" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 0 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;id&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<arg>select id from automationtesting.person where first_name="Johnx"</arg>
+<doc>*DEPRECATED* Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</doc>
+<status status="PASS" start="2026-06-17T19:05:14.641948" elapsed="0.000825"/>
+</kw>
+<status status="PASS" start="2026-06-17T19:05:14.641684" elapsed="0.001205"/>
+</test>
+<test id="s1-t3" name="Check Table Exist" line="36">
+<kw name="Table Must Exist" owner="DatabaseLibrary">
+<msg time="2026-06-17T19:05:14.643463" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM information_schema.tables WHERE table_name='person'&lt;/code&gt;</msg>
+<msg time="2026-06-17T19:05:14.644767" level="INFO">Commit the transaction</msg>
+<msg time="2026-06-17T19:05:14.644907" level="INFO">Retrieved 1 rows</msg>
+<msg time="2026-06-17T19:05:14.644959" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;TABLE_CATALOG&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;TABLE_SCHEMA&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;TABLE_NAME&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;TABLE_TYPE&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;ENGINE&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;VERSION&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;ROW_FORMAT&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;TABLE_ROWS&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;AVG_ROW_LENGTH&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;DATA_LENGTH&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;MAX_DATA_LENGTH&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;INDEX_LENGTH&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;DATA_FREE&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;AUTO_INCREMENT&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CREATE_TIME&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;UPDATE_TIME&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CHECK_TIME&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;TABLE_COLLATION&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CHECKSUM&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;CREATE_OPTIONS&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;TABLE_COMMENT&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;def&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;automationtesting&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;person&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;BASE TABLE&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;InnoDB&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;10&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Dynamic&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;4&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;4096&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;16384&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2026-06-17 18:32:30&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2026-06-17 18:47:14&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;utf8mb4_0900_ai_ci&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<arg>person</arg>
+<doc>Check if the table with `table_name` exists in the database.</doc>
+<status status="PASS" start="2026-06-17T19:05:14.643385" elapsed="0.001737"/>
+</kw>
+<status status="PASS" start="2026-06-17T19:05:14.643183" elapsed="0.002048"/>
+</test>
+<test id="s1-t4" name="Verify Row Count is equal to exact values" line="39">
+<kw name="Row Count Is Equal To X" owner="DatabaseLibrary">
+<msg time="2026-06-17T19:05:14.645797" level="WARN">Keyword 'DatabaseLibrary.Row Count Is Equal To X' is deprecated. Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</msg>
+<msg time="2026-06-17T19:05:14.646036" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;select id from automationtesting.person where first_name="Johnx";&lt;/code&gt;</msg>
+<msg time="2026-06-17T19:05:14.646214" level="INFO">Commit the transaction</msg>
+<msg time="2026-06-17T19:05:14.646360" level="INFO">Retrieved 0 rows</msg>
+<msg time="2026-06-17T19:05:14.646387" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 0 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;id&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-06-17T19:05:14.646478" level="FAIL">ValueError: invalid literal for int() with base 10: b'== 0'</msg>
+<arg>select id from automationtesting.person where first_name="Johnx";</arg>
+<arg>== 0</arg>
+<doc>*DEPRECATED* Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</doc>
+<status status="FAIL" start="2026-06-17T19:05:14.645776" elapsed="0.001327">ValueError: invalid literal for int() with base 10: b'== 0'</status>
+</kw>
+<status status="FAIL" start="2026-06-17T19:05:14.645563" elapsed="0.001698">ValueError: invalid literal for int() with base 10: b'== 0'</status>
+</test>
+<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2026-06-17T19:05:14.647900" elapsed="0.000788"/>
+</kw>
+<status status="FAIL" start="2026-06-17T19:05:14.533475" elapsed="0.115248"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Testing" id="s1" pass="3" fail="1" skip="0">Testing</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-06-17T19:05:14.640030" level="WARN">Keyword 'DatabaseLibrary.Check If Exists In Database' is deprecated. Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</msg>
+<msg time="2026-06-17T19:05:14.641971" level="WARN">Keyword 'DatabaseLibrary.Row Count Is 0' is deprecated. Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</msg>
+<msg time="2026-06-17T19:05:14.645797" level="WARN">Keyword 'DatabaseLibrary.Row Count Is Equal To X' is deprecated. Use new `Check Row Count` keyword with assertion engine instead.
+The deprecated keyword will be removed in future versions.</msg>
+</errors>
+</robot>
